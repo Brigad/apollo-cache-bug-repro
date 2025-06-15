@@ -9,6 +9,10 @@ npm run dev
 
 ## How to reproduce
 
+The project highlights a bug in Apollo Client where `useQuery` will return stale data after setting `skip: true`, calling `client.clearStore()` or `client.cache.updateQuery()`, and setting `skip: false`.
+
+This happens in a real-world application where the user is logged out and the query is skipped. When the user logs in again, stale data is returned matching the previous user.
+
 ### Stale cache after calling `client.clearStore()`
 
 1. Login as user-1
