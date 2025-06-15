@@ -19,7 +19,9 @@ This happens in a real-world application where the user is logged out and the qu
 2. Logout
 3. Login as user-2
 
-=> The cache is stale and the query returns the wrong user.
+Check the console: https://gyazo.com/7de9ea69aa7b7aedcbb82c06149f4295
+
+=> `useQuery`'s cache is stale and the query returns the wrong user, even though the Apollo cache is empty.
 Expected: the query returns `undefined`.
 
 ### Stale cache after calling `client.cache.updateQuery()`
@@ -29,5 +31,7 @@ Expected: the query returns `undefined`.
 3. Click "Alter cache"
 4. Login as user-2
 
-=> The cache is stale and the query returns the wrong user.
+Check the console: https://gyazo.com/c0ea27f5c85149a5fb438c01fbd50a56
+
+=> `useQuery`'s cache is stale and the query returns the wrong user, even though the Apollo cache was updated with another user.
 Expected: the query returns `user-3`.
